@@ -95,6 +95,9 @@ small,
   font-size: 0.8rem;
   letter-spacing: 2px;
 }
+button {
+  font-family: inherit;
+}
 ul {
   list-style: none;
   padding: 0;

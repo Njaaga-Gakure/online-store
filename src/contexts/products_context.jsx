@@ -1,6 +1,8 @@
-import {createContext, useContext, useReducer} from 'react'
+import {createContext, useContext, useEffect, useReducer} from 'react'
 import reducer from '../reducers/products_reducer'
 import { OPEN_SIDEBAR, CLOSE_SIDEBAR } from '../action'
+import { products_url as url } from '../utils/data'
+import axios from 'axios'
 
 const initialState = {
     isSidebarOpen: false
@@ -16,7 +18,17 @@ const ProductsProvider = ({children}) => {
     const closeSidebar = () => {
         dispatch({type: CLOSE_SIDEBAR})
     }
-    console.log(state)
+    const fetchProducts = async () => {
+        try {
+            const {data} = await axios(url)
+            console.log(data);
+        } catch(err) {
+            
+        }
+    }
+    useEffect(()=> {
+        fetchProducts()
+    }, [])
     return (
         <ProductsContext.Provider value={{...state, openSidebar, closeSidebar}}>
             {children}
