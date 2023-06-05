@@ -1,24 +1,25 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import {BsSearch} from "react-icons/bs"
+import { priceFormat } from '../utils/helpers-functions'
 const Product = ({id, image, name, price}) => {
   return (
     <Wrapper>
       <div className="img-container">
-        <img class="product-img" src={image} alt={name} />
+        <img className="product-img" src={image} alt={name} />
         <Link className="product-btn" to={`/products/${id}`}>
             <BsSearch />
         </Link>
       </div>
       <div className="product-info">
-          <span className="product-name">{name}</span>
-          <span className="product-price">${price}</span>
+          <h5 className="product-name">{name}</h5>
+          <p className="product-price">{priceFormat(price)}</p>
       </div>
     </Wrapper>
   )
 }
 const Wrapper = styled.article`
-background: var(--gray-50);
+background: var(--gray-100);
 border-radius: var(--border-radius);
 box-shadow: var(--shadow-2);
 .img-container {
@@ -35,7 +36,7 @@ box-shadow: var(--shadow-2);
   top: 50%;
   left: 50%;
   font-size: 2rem;
-  color: var(--primary-700);
+  color: var(--primary-600);
   opacity: 0;
   transition: var(--transition);
 }
@@ -47,14 +48,15 @@ box-shadow: var(--shadow-2);
 }
 .product-info {
   padding: .5rem 1rem;
-  display: flex;
-  justify-content: space-between;
 }
 .product-name {
-  color: var(--primary-800);
+  margin: 0;
   letter-spacing: var(--letter-spacing);
 }
-
-
+.product-price {
+  margin: 0;
+  letter-spacing: var(--letter-spacing);
+  color: var(--primary-800);
+}
 `
 export default Product
