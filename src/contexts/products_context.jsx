@@ -1,11 +1,21 @@
 import {createContext, useContext, useEffect, useReducer} from 'react'
 import reducer from '../reducers/products_reducer'
-import { OPEN_SIDEBAR, CLOSE_SIDEBAR } from '../action'
+import { 
+        OPEN_SIDEBAR, 
+        CLOSE_SIDEBAR, 
+        FETCH_PRODUCTS_BEGIN,
+        FETCH_PRODUCTS_SUCCESS,
+        FETCH_PRODUCTS_ERROR
+       } from '../action'
 import { products_url as url } from '../utils/data'
 import axios from 'axios'
 
 const initialState = {
-    isSidebarOpen: false
+    isSidebarOpen: false,
+    products_loading: false,
+    products_error: false,
+    products: [],
+    featured_products: []
 }
 
 const ProductsContext = createContext()
@@ -19,13 +29,16 @@ const ProductsProvider = ({children}) => {
         dispatch({type: CLOSE_SIDEBAR})
     }
     const fetchProducts = async () => {
+        dispatch({type: FETCH_PRODUCTS_BEGIN})
         try {
-            const {data} = await axios(url)
-            console.log(data);
+            const {data: products} = await axios(url)
+            dispatch({type: FETCH_PRODUCTS_SUCCESS, payload: products})
         } catch(err) {
-            
+            console.log(err)
+            dispatch({type: FETCH_PRODUCTS_ERROR})
         }
     }
+    
     useEffect(()=> {
         fetchProducts()
     }, [])
