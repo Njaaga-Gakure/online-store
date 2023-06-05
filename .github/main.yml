@@ -1,0 +1,33 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: your_netlify_site_id
+          BUILD_COMMAND: npm run build
+          ENV: |
+            AIRTABLE_API_KEY=${{ secrets.AIRTABLE_API_KEY }}
+            AIRTABLE_BASE=${{ secrets.AIRTABLE_BASE }}
+            AIRTABLE_TABLE=${{ secrets.AIRTABLE_TABLE }}

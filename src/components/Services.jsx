@@ -38,7 +38,7 @@ background: var(--gray-100);
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
 }
 .service * {
     margin: 0;
