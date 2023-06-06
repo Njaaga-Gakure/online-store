@@ -20,22 +20,35 @@ const ProductImages = ({images =[{url: ''}]}) => {
   )
 }
 const Wrapper = styled.section`
+img {
+  width: 100%;
+}
 .main-img {
   height: 500px;
 } 
 .gallery {
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  justify-content: space-between;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  column-gap: 1rem;
   img {
-    width: 100px;
     height: 100px;
-    opacity: 0.6;
+    cursor: pointer;
   }
   .active-img {
     border: 2px solid var(--primary-200);
     opacity: 1;
+  }
+}
+@media (max-width: 576px) {
+  .main-img{
+    height: 300px;
+  }
+  .gallery {
+    img {
+      height: 50px;
+    }
   }
 }
 `
