@@ -26,7 +26,7 @@ const Wrapper = styled.section`
 .gallery {
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   justify-content: space-between;
   img {
     width: 100px;
