@@ -34,6 +34,7 @@ img {
   img {
     height: 100px;
     cursor: pointer;
+    opacity: 0.6;
   }
   .active-img {
     border: 2px solid var(--primary-200);
