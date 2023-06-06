@@ -9,6 +9,9 @@ import Loading from "./Loading";
 import Error from "./Error";
 import FeaturedProducts from "./FeaturedProducts";
 import Product from "./Product";
+import ProductImages from "./ProductImages";
+import Rating from "./Rating";
+import AddToCart from "./AddToCart";
 
 export {
   Navbar,
@@ -22,4 +25,7 @@ export {
   Error,
   FeaturedProducts,
   Product,
+  ProductImages,
+  Rating,
+  AddToCart,
 };

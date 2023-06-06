@@ -5,7 +5,10 @@ import {
         CLOSE_SIDEBAR, 
         FETCH_PRODUCTS_BEGIN,
         FETCH_PRODUCTS_SUCCESS,
-        FETCH_PRODUCTS_ERROR
+        FETCH_PRODUCTS_ERROR,
+        FETCH_SINGLE_PRODUCT_BEGIN,
+        FETCH_SINGLE_PRODUCT_SUCCESS,
+        FETCH_SINGLE_PRODUCT_ERROR
        } from '../action'
 import { products_url as url } from '../utils/data'
 import axios from 'axios'
@@ -15,7 +18,10 @@ const initialState = {
     products_loading: false,
     products_error: false,
     products: [],
-    featured_products: []
+    featured_products: [],
+    single_product_loading: false,
+    single_product_error: false,
+    single_product: {}
 }
 
 const ProductsContext = createContext()
@@ -38,12 +44,21 @@ const ProductsProvider = ({children}) => {
             dispatch({type: FETCH_PRODUCTS_ERROR})
         }
     }
-    
+    const fetchSingleProduct = async (url) => {
+        dispatch({type: FETCH_SINGLE_PRODUCT_BEGIN})
+        try {
+          const { data: product } = await axios(url)
+          dispatch({type: FETCH_SINGLE_PRODUCT_SUCCESS, payload: product})
+        } catch (err) {
+          console.log(err.message)
+          dispatch({type: FETCH_SINGLE_PRODUCT_ERROR})
+        }
+      }
     useEffect(()=> {
         fetchProducts()
     }, [])
     return (
-        <ProductsContext.Provider value={{...state, openSidebar, closeSidebar}}>
+        <ProductsContext.Provider value={{...state, openSidebar, closeSidebar, fetchSingleProduct}}>
             {children}
         </ProductsContext.Provider>
     )

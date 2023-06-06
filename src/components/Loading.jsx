@@ -8,6 +8,7 @@ const Loading = () => {
   )
 }
 const Wrapper = styled.div`
+  padding: 2rem;
   margin: 0 auto;
  .loading {
   margin: 0 auto;

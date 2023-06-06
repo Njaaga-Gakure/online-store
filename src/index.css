@@ -96,6 +96,11 @@ small,
   font-size: 0.8rem;
   letter-spacing: 2px;
 }
+hr {
+  height: 1px;
+  border: none;
+  background: var(--primary-100);
+}
 button {
   font-family: inherit;
 }
@@ -110,6 +115,8 @@ a {
 img {
   display: block;
   width: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
 }
 .btn-block {
   width: 100%;
