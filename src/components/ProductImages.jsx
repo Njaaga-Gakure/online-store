@@ -30,8 +30,7 @@ img {
   margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  justify-content: center;
-  column-gap: 1rem;
+  gap: 1rem;
   img {
     height: 100px;
     cursor: pointer;
@@ -44,11 +43,6 @@ img {
 @media (max-width: 576px) {
   .main-img{
     height: 300px;
-  }
-  .gallery {
-    img {
-      height: 50px;
-    }
   }
 }
 `
