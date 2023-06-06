@@ -45,6 +45,11 @@ img {
   .main-img{
     height: 300px;
   }
+  .gallery {
+    img {
+      height: 50px;
+    }
+  }
 }
 `
 export default ProductImages
