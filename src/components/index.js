@@ -12,6 +12,7 @@ import Product from "./Product";
 import ProductImages from "./ProductImages";
 import Rating from "./Rating";
 import AddToCart from "./AddToCart";
+import AmountButtons from "./AmountButtons";
 
 export {
   Navbar,
@@ -28,4 +29,5 @@ export {
   ProductImages,
   Rating,
   AddToCart,
+  AmountButtons,
 };

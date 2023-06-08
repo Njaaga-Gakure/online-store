@@ -9,7 +9,7 @@ const ProductImages = ({images =[{url: ''}]}) => {
         {images.map((image, index) => {
           return <img
                   key= {index}
-                  className={mainImg.url === image.url && 'active-img'}
+                  className={mainImg.url === image.url ? 'active-img' : null}
                   onClick={() => setMainImg(images[index])}
                   src={image.url}
                   alt='gallery image'

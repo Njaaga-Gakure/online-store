@@ -59,7 +59,7 @@ const SingleProductPage = () => {
         <ProductImages images={images}/>
         <section className='product-content'>
           <h2 className='product-name'>{name}</h2>
-          <Rating />
+          <Rating rating={rating} reviews={reviews}/>
           <h5 className="product-price">{priceFormat(price)}</h5>
           <p className="product-desc">{description}</p>
           <p className="info">
@@ -75,7 +75,7 @@ const SingleProductPage = () => {
             {company}
           </p>
           <hr />
-          {stock > 0 && <AddToCart />}
+          {stock > 0 && <AddToCart product={product} />}
         </section>
        </div>
     </Wrapper>
@@ -106,10 +106,13 @@ text-align: left;
 }
 .product-name {
   color: var(--primary-800);
+  margin: 0;
 }
 .product-price {
   letter-spacing: var(--letter-spacing);
   color: var(--primary-600);
+  margin: 0;
+  margin-bottom: 1rem;
 }
 .product-desc,
 .info{
