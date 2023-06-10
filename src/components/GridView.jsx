@@ -11,7 +11,7 @@ const GridView = ({products}) => {
 }
 const Wrapper = styled.section`
 display: grid;
-grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 gap: 1.5rem;
 img {
   height: 175px;
