@@ -26,7 +26,6 @@ box-shadow: var(--shadow-2);
   position: relative;
 }
 .product-img {
-  height: 250px;
   object-fit: cover;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   transition: var(--transition);

@@ -13,6 +13,10 @@ import ProductImages from "./ProductImages";
 import Rating from "./Rating";
 import AddToCart from "./AddToCart";
 import AmountButtons from "./AmountButtons";
+import Filters from "./Filters";
+import ProductsList from "./ProductsList";
+import Sort from "./Sort";
+import GridView from "./GridView";
 
 export {
   Navbar,
@@ -30,4 +34,8 @@ export {
   Rating,
   AddToCart,
   AmountButtons,
+  Filters,
+  ProductsList,
+  Sort,
+  GridView,
 };

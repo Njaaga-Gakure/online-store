@@ -53,6 +53,7 @@ const productsReducer = (state, action) => {
       single_product_error: true,
     };
   }
+  throw new Error(`no action type matching ${action.type}`);
 };
 
 export default productsReducer;
