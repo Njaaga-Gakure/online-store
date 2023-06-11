@@ -10,6 +10,7 @@ const LOAD_PRODUCTS = "LOAD_PRODUCTS";
 const SET_GRID = "SET_GRID";
 const SET_LIST = "SET_LIST";
 const UPDATE_SORT = "UPDATE_SORT";
+const SORT_PRODUCTS = "SORT_PRODUCTS";
 
 export {
   OPEN_SIDEBAR,
@@ -24,4 +25,5 @@ export {
   SET_GRID,
   SET_LIST,
   UPDATE_SORT,
+  SORT_PRODUCTS,
 };

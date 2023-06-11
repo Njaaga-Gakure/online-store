@@ -21,10 +21,10 @@ const Sort = () => {
         <form>
           <label className="form-label" htmlFor="sort">sort by </label>
           <select onChange={updateSort} value={sort} name="sort" id="sort">
-            <option value="name-a">Name (a - z)</option>
-            <option value="name-z">Name (z - a)</option>
             <option value="price-asc">Price (asc)</option>
             <option value="price-desc">Price (desc)</option>
+            <option value="name-a">Name (a - z)</option>
+            <option value="name-z">Name (z - a)</option>
           </select>
         </form>
       </div> 
