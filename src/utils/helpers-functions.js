@@ -4,4 +4,12 @@ const priceFormat = (num) => {
     currency: "KES",
   }).format(num / 100);
 };
-export { priceFormat };
+
+const getUniqueValues = (data, type) => {
+  const uniqueValues =
+    type === "colors"
+      ? data.map((item) => item[type]).flat()
+      : data.map((item) => item[type]);
+  return ["all", ...new Set(uniqueValues)];
+};
+export { priceFormat, getUniqueValues };

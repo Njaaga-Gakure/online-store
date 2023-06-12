@@ -4,13 +4,22 @@ import {
   SET_LIST,
   SORT_PRODUCTS,
   UPDATE_SORT,
+  UPDATE_FILTERS,
+  FILTER_PRODUCTS,
 } from "../action";
 const filterProductsReducer = (state, action) => {
   if (action.type === LOAD_PRODUCTS) {
+    let maxPrice = action.payload.map((product) => product.price);
+    maxPrice = Math.max(...maxPrice);
     return {
       ...state,
       filtered_products: [...action.payload],
       all_products: [...action.payload],
+      filters: {
+        ...state.filters,
+        price: maxPrice,
+        max_price: maxPrice,
+      },
     };
   }
   if (action.type === SET_GRID) {
@@ -38,6 +47,13 @@ const filterProductsReducer = (state, action) => {
       newProducts = newProducts.sort((a, b) => b.name.localeCompare(a.name));
     }
     return { ...state, filtered_products: newProducts };
+  }
+  if (action.type === UPDATE_FILTERS) {
+    const { name, value } = action.payload;
+    return { ...state, filters: { ...state.filters, [name]: value } };
+  }
+  if (action.type === FILTER_PRODUCTS) {
+    return { ...state };
   }
   throw new Error(`no action type matching ${action.type}`);
 };

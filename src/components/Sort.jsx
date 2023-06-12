@@ -55,7 +55,7 @@ p {
   color: var(--primary-900);
 }
 select {
-  border: 1px solid var(--gray-600);
+  border: 1px solid var(--gray-500);
   padding: 2px 5px;
   background:  transparent;
   letter-spacing: var(--letter-spacing);
