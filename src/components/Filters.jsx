@@ -98,6 +98,7 @@ const Filters = () => {
 }
 const Wrapper = styled.section`
   text-align: left;
+
   form {
     margin-top: .5rem;
   }
@@ -109,10 +110,10 @@ const Wrapper = styled.section`
   }
   .companies-container {
     margin-top: 1rem;
-    h5 {
-      color: var(--primary-800);
-      letter-spacing: var(--letter-spacing);
-    }
+  }
+  h5 {
+    color: var(--primary-800);
+    letter-spacing: var(--letter-spacing);
   }
   .companies {
     margin-top: .5rem;
