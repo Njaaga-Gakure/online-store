@@ -6,6 +6,7 @@ import {
   UPDATE_SORT,
   UPDATE_FILTERS,
   FILTER_PRODUCTS,
+  CLEAR_FILTERS,
 } from "../action";
 const filterProductsReducer = (state, action) => {
   if (action.type === LOAD_PRODUCTS) {
@@ -54,6 +55,18 @@ const filterProductsReducer = (state, action) => {
   }
   if (action.type === FILTER_PRODUCTS) {
     return { ...state };
+  }
+  if (action.type === CLEAR_FILTERS) {
+    return {
+      ...state,
+      filters: {
+        ...state.filters,
+        text: "",
+        company: "all",
+        color: "all",
+        price: state.filters.max_price,
+      },
+    };
   }
   throw new Error(`no action type matching ${action.type}`);
 };

@@ -1,6 +1,15 @@
 import { createContext, useContext, useReducer } from "react"
 import { useProductsContext } from './products_context'
-import { LOAD_PRODUCTS, SET_GRID, SET_LIST, UPDATE_SORT, SORT_PRODUCTS, UPDATE_FILTERS, FILTER_PRODUCTS} from "../action" 
+import { 
+        LOAD_PRODUCTS,
+        SET_GRID,
+        SET_LIST,
+        UPDATE_SORT,
+        SORT_PRODUCTS,
+        UPDATE_FILTERS,
+        FILTER_PRODUCTS,
+        CLEAR_FILTERS
+    } from "../action" 
 const FilterContext = createContext()
 import reducer from "../reducers/filter_products_reducer"
 import { useEffect } from "react"
@@ -53,7 +62,7 @@ const FilterProductsProvider = ({children}) => {
         dispatch({ type: UPDATE_FILTERS, payload: { name, value }})
     }
     const clearFilters = () => {
-       
+       dispatch({ type: CLEAR_FILTERS })
     }
     return (
         <FilterContext.Provider
