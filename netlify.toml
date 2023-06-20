@@ -1,4 +1,4 @@
 [build]
 command = "vite build"
 functions = "./functions"
- framework = "Vite"
+framework = "Vite"
