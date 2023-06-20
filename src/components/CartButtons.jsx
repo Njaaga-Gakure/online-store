@@ -2,16 +2,19 @@ import styled from "styled-components"
 import { TiShoppingCart, TiUserAdd, TiUserDelete} from 'react-icons/ti'
 import { Link } from 'react-router-dom'
 import { useProductsContext } from "../contexts/products_context"
+import { useCartContext } from "../contexts/cart_context"
 
 const CartButtons = () => {
-  const { closeSidebar } = useProductsContext() 
+  const { closeSidebar } = useProductsContext()
+  const { total_items } = useCartContext() 
+ 
   return (
    <Wrapper className="cart-btn-wrapper">
         <Link onClick={closeSidebar} to='/cart'> 
             Cart
             <span className="cart-container">
                 <TiShoppingCart />
-                <span className="cart-value">12</span>
+                <span className="cart-value">{total_items}</span>
             </span>
         </Link>
         <button className="auth-btn">
