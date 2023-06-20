@@ -1,6 +1,10 @@
-const CartContent = () => {
+import { useCartContext } from "../contexts/cart_context"
+
+const CartContent = ({cart}) => {
+  const { cart, clearCart } = useCartContext()
+  const {name} = cart[0]
   return (
-    <div>CartContent</div>
+    <div>{name}</div>
   )
 }
 

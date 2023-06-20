@@ -19,7 +19,7 @@ const CartPage = () => {
   }
   return (
     <Wrapper className="full-page">
-      <CartContent />
+      <CartContent cart={cart}/>
     </Wrapper>
   )
 }
